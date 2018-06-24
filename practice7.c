@@ -25,14 +25,17 @@ gcc practice7.c gcd.c -ansi -pedantic -Wall
     ii++;
   }
 
-  str[ii+1]='\0';
+ 
+
+fprintf(stdout,"the input is: %s \n",str);
+
 
 if (check_int(str)==0){
-	fprintf(stderr,"non printable character detected!!\n");
+	fprintf(stderr,"non numerical values detected!!\n");
 }
 	else{
-		int a = (str[1]-'0');
-		int b = (str[2]-'0');
+		int a = (str[0]-'0');
+		int b = (str[1]-'0');
   	fprintf(stdout,"the gcd is: %d \n",gcd(a,b));
 }
   
@@ -43,7 +46,7 @@ int check_int(char *str){
 	int final = 1;
 	int ii = 0;
 	while(str[ii]!='\0'){
-	if( str[ii] < '/'|| str[ii] > ':'){
+	if( str[ii] < 0 && str[ii] > 9){
 		final = 0;
 		break;
 	}
